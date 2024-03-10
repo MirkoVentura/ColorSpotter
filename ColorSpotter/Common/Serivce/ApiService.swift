@@ -14,7 +14,11 @@ enum APIError: Error {
     case requestFailed
 }
 
-struct APIService {
+protocol ApiServiceProtocol {
+    func fetchData(from url: URL) -> AnyPublisher<Data, Error>
+}
+
+struct APIService : ApiServiceProtocol {
     func fetchData(from url: URL) -> AnyPublisher<Data, Error> {
         return URLSession.shared.dataTaskPublisher(for: url)
             .mapError { error in

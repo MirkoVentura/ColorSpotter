@@ -17,7 +17,6 @@
 		3A894AA72B9B89C700793209 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A894AA62B9B89C700793209 /* ContentView.swift */; };
 		3A894AA92B9B89C900793209 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A894AA82B9B89C900793209 /* Assets.xcassets */; };
 		3A894AAC2B9B89C900793209 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A894AAB2B9B89C900793209 /* Preview Assets.xcassets */; };
-		3A894AB62B9B89C900793209 /* ColorSpotterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A894AB52B9B89C900793209 /* ColorSpotterTests.swift */; };
 		3A894AC02B9B89C900793209 /* ColorSpotterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A894ABF2B9B89C900793209 /* ColorSpotterUITests.swift */; };
 		3A894AC22B9B89C900793209 /* ColorSpotterUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A894AC12B9B89C900793209 /* ColorSpotterUITestsLaunchTests.swift */; };
 		3A894AD92B9CA6BE00793209 /* Notifications+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A894AD82B9CA6BE00793209 /* Notifications+Extension.swift */; };
@@ -25,12 +24,13 @@
 		3ACE25F82B9DBC3F0047DF2F /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACE25F72B9DBC3F0047DF2F /* UIImage+Extension.swift */; };
 		3ACE25FD2B9DC9620047DF2F /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACE25FC2B9DC9620047DF2F /* ApiService.swift */; };
 		3ACE26032B9DCC7F0047DF2F /* ColorData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACE26022B9DCC7F0047DF2F /* ColorData.swift */; };
-		3ACE26052B9DD5020047DF2F /* CameraManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACE26042B9DD5010047DF2F /* CameraManagerTests.swift */; };
+		3ACE26052B9DD5020047DF2F /* CameraViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACE26042B9DD5010047DF2F /* CameraViewModelTests.swift */; };
 		3ACE26082B9DF1590047DF2F /* ColorListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACE26072B9DF1590047DF2F /* ColorListViewModel.swift */; };
 		3ACE260A2B9DF1EB0047DF2F /* ColorListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACE26092B9DF1EB0047DF2F /* ColorListView.swift */; };
 		3ACE260C2B9DF4720047DF2F /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACE260B2B9DF4720047DF2F /* Color+Extension.swift */; };
 		3ACE260E2B9DFA8E0047DF2F /* ItemManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACE260D2B9DFA8E0047DF2F /* ItemManager.swift */; };
 		3ACE26102B9DFE600047DF2F /* AlertErrror.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACE260F2B9DFE600047DF2F /* AlertErrror.swift */; };
+		3AD592812B9E3CC5003499E6 /* Mocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD592802B9E3CC5003499E6 /* Mocks.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,7 +64,6 @@
 		3A894AA82B9B89C900793209 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3A894AAB2B9B89C900793209 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		3A894AB12B9B89C900793209 /* ColorSpotterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ColorSpotterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		3A894AB52B9B89C900793209 /* ColorSpotterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSpotterTests.swift; sourceTree = "<group>"; };
 		3A894ABB2B9B89C900793209 /* ColorSpotterUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ColorSpotterUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A894ABF2B9B89C900793209 /* ColorSpotterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSpotterUITests.swift; sourceTree = "<group>"; };
 		3A894AC12B9B89C900793209 /* ColorSpotterUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSpotterUITestsLaunchTests.swift; sourceTree = "<group>"; };
@@ -73,12 +72,13 @@
 		3ACE25F72B9DBC3F0047DF2F /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		3ACE25FC2B9DC9620047DF2F /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
 		3ACE26022B9DCC7F0047DF2F /* ColorData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorData.swift; sourceTree = "<group>"; };
-		3ACE26042B9DD5010047DF2F /* CameraManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraManagerTests.swift; sourceTree = "<group>"; };
+		3ACE26042B9DD5010047DF2F /* CameraViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewModelTests.swift; sourceTree = "<group>"; };
 		3ACE26072B9DF1590047DF2F /* ColorListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorListViewModel.swift; sourceTree = "<group>"; };
 		3ACE26092B9DF1EB0047DF2F /* ColorListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorListView.swift; sourceTree = "<group>"; };
 		3ACE260B2B9DF4720047DF2F /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
 		3ACE260D2B9DFA8E0047DF2F /* ItemManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemManager.swift; sourceTree = "<group>"; };
 		3ACE260F2B9DFE600047DF2F /* AlertErrror.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertErrror.swift; sourceTree = "<group>"; };
+		3AD592802B9E3CC5003499E6 /* Mocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mocks.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -174,8 +174,8 @@
 		3A894AB42B9B89C900793209 /* ColorSpotterTests */ = {
 			isa = PBXGroup;
 			children = (
-				3A894AB52B9B89C900793209 /* ColorSpotterTests.swift */,
-				3ACE26042B9DD5010047DF2F /* CameraManagerTests.swift */,
+				3AD5927F2B9E3CAF003499E6 /* Mocks */,
+				3ACE26042B9DD5010047DF2F /* CameraViewModelTests.swift */,
 			);
 			path = ColorSpotterTests;
 			sourceTree = "<group>";
@@ -250,6 +250,14 @@
 				3ACE26092B9DF1EB0047DF2F /* ColorListView.swift */,
 			);
 			path = ColorList;
+			sourceTree = "<group>";
+		};
+		3AD5927F2B9E3CAF003499E6 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				3AD592802B9E3CC5003499E6 /* Mocks.swift */,
+			);
+			path = Mocks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -407,8 +415,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3ACE26052B9DD5020047DF2F /* CameraManagerTests.swift in Sources */,
-				3A894AB62B9B89C900793209 /* ColorSpotterTests.swift in Sources */,
+				3ACE26052B9DD5020047DF2F /* CameraViewModelTests.swift in Sources */,
+				3AD592812B9E3CC5003499E6 /* Mocks.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -569,7 +577,6 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ColorSpotter/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Usiamo la fotocamera per individuare l'oggetto da cui ricavare il colore";
-				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "just to take the image temporary";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -601,7 +608,6 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ColorSpotter/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Usiamo la fotocamera per individuare l'oggetto da cui ricavare il colore";
-				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "just to take the image temporary";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -629,7 +635,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = CWD8J9NCB8;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = mirkoventura.ColorSpotterTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -649,7 +655,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = CWD8J9NCB8;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = mirkoventura.ColorSpotterTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";

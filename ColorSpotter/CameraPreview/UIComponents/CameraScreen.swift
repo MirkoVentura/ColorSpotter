@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct CameraScreen: View {
-    @ObservedObject var viewModel = CameraViewModel()
+    @ObservedObject var viewModel = CameraViewModel(cameraManager: CameraManager())
+
     @State private var navigateToNewView = false
 
     var body: some View {

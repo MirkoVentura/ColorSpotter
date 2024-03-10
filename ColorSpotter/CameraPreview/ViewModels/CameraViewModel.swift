@@ -10,9 +10,8 @@ import Combine
 import Photos
 import AVFoundation
 
-class CameraViewModel: ObservableObject {
-    
-    @ObservedObject var cameraManager = CameraManager()
+class CameraViewModel<Manager>: ObservableObject where Manager: CameraManaging {
+    @Published var cameraManager: Manager
     
     @Published var isFlashOn = false
     @Published var showAlertError = false
@@ -27,26 +26,28 @@ class CameraViewModel: ObservableObject {
     var alertError: AlertError!
     var session: AVCaptureSession = .init()
     private var cancelables = Set<AnyCancellable>()
-    private var lastAcquiredColor: ColorData?
+    var lastAcquiredColor: ColorData?
     let itemManager = ItemManager()
-    
-    init() {
+    var apiService: ApiServiceProtocol = APIService()
+
+    init(cameraManager: Manager) {
+        self.cameraManager = cameraManager
         session = cameraManager.session
         setupBindings()
     }
-    
+
     deinit {
         cameraManager.stopCapturing()
     }
     
     func setupBindings() {
-        cameraManager.$shouldShowAlertView.sink { [weak self] value in
+        (cameraManager as? CameraManager)?.$shouldShowAlertView.sink { [weak self] value in
             self?.alertError = self?.cameraManager.alertError
             self?.showAlertError = value
         }
         .store(in: &cancelables)
         
-        cameraManager.$capturedImage
+        (cameraManager as? CameraManager)?.$capturedImage
             .sink { [weak self] image in
             self?.mostCommonColor = image?.areaAvarage()
             self?.colorEx = self?.mostCommonColor?.toHex()
@@ -75,25 +76,7 @@ class CameraViewModel: ObservableObject {
     
     func captureImage() {
         isLoading = true
-        requestGalleryPermission()
-          let permission = checkGalleryPermissionStatus()
-          if permission.rawValue != 2 {
-            cameraManager.captureImage()
-          }
-    }
-    
-    // Ask for the permission for photo library access
-    func requestGalleryPermission() {
-       PHPhotoLibrary.requestAuthorization { status in
-         switch status {
-         case .authorized:
-            break
-         case .denied:
-            self.showSettingAlert = true
-         default:
-            break
-         }
-       }
+        cameraManager.captureImage()
     }
     
     func checkForDevicePermission() {
@@ -120,13 +103,8 @@ class CameraViewModel: ObservableObject {
         isFlashOn.toggle()
         cameraManager.toggleTorch(tourchIsOn: isFlashOn)
     }
-
-    func checkGalleryPermissionStatus() -> PHAuthorizationStatus {
-        return PHPhotoLibrary.authorizationStatus()
-    }
     
     func getColorName() {
-        let apiService = APIService()
 
         if let colorEx = self.colorEx {
             let exCode = colorEx.replacingOccurrences(of: "#", with: "")

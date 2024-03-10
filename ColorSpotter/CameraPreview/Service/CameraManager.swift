@@ -16,7 +16,25 @@ enum Status {
     case failed
 }
 
-class CameraManager: ObservableObject {
+protocol CameraManaging: ObservableObject {
+    var capturedImage: UIImage? { get set }
+    var flashMode: AVCaptureDevice.FlashMode { get set }
+    var status: Status { get set }
+    var shouldShowAlertView: Bool { get set }
+    var alertError: AlertError { get set }
+    var position: AVCaptureDevice.Position {get set}
+    var session: AVCaptureSession { get set}
+    
+    func configureCaptureSession()
+    func startCapturing()
+    func stopCapturing()
+    func toggleTorch(tourchIsOn: Bool)
+    func switchCamera()
+    func captureImage()
+}
+
+
+class CameraManager: ObservableObject, CameraManaging {
     
     @Published var capturedImage: UIImage? = nil
     @Published var flashMode: AVCaptureDevice.FlashMode = .off
@@ -24,7 +42,7 @@ class CameraManager: ObservableObject {
     @Published var status = Status.unconfigured
     @Published var shouldShowAlertView = false
     
-    let session = AVCaptureSession()
+    var session: AVCaptureSession = AVCaptureSession()
     let photoOutput = AVCapturePhotoOutput()
     var videoDeviceInput: AVCaptureDeviceInput?
     var position: AVCaptureDevice.Position = .back
@@ -33,7 +51,7 @@ class CameraManager: ObservableObject {
     var alertError: AlertError = AlertError()
     
     // Communicate with the session and other session objects with this queue.
-    private let sessionQueue = DispatchQueue(label: "com.demo.sessionQueue")
+    private let sessionQueue = DispatchQueue(label: "com.mirkoventura.sessionQueue")
     
     func configureCaptureSession() {
         sessionQueue.async { [weak self] in
@@ -157,17 +175,6 @@ class CameraManager: ObservableObject {
         }
     }
     
-    func setZoomScale(factor: CGFloat){
-        guard let device = self.videoDeviceInput?.device else { return }
-        do {
-            try device.lockForConfiguration()
-            device.videoZoomFactor = max(device.minAvailableVideoZoomFactor, max(factor, device.minAvailableVideoZoomFactor))
-            device.unlockForConfiguration()
-        } catch {
-            print(error.localizedDescription)
-        }
-    }
-    
     func switchCamera() {
         guard let videoDeviceInput else { return }
         
@@ -191,7 +198,7 @@ class CameraManager: ObservableObject {
           }
       
           // Sets the flash mode for the capture
-          if self.videoDeviceInput!.device.isFlashAvailable {
+           if ((self.videoDeviceInput?.device.isFlashAvailable) != nil) {
              photoSettings.flashMode = self.flashMode
           }
            
@@ -206,7 +213,8 @@ class CameraManager: ObservableObject {
 
           photoSettings.photoQualityPrioritization = .quality
       
-          if let videoConnection = photoOutput.connection(with: .video), videoConnection.isVideoOrientationSupported {
+          if let videoConnection = photoOutput.connection(with: .video),
+             videoConnection.isVideoOrientationSupported {
              videoConnection.videoOrientation = .portrait
           }
       
