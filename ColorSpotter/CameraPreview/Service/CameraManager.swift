@@ -88,7 +88,9 @@ class CameraManager: ObservableObject {
             session.addOutput(photoOutput)
             //photoOutput.isHighResolutionCaptureEnabled = true
             photoOutput.maxPhotoQualityPrioritization = .quality // work for ios 15.6 and the older versions
-            photoOutput.maxPhotoDimensions = .init(width: 4032, height: 3024) // for ios 16.0*
+            if position == .back {
+                photoOutput.maxPhotoDimensions = .init(width: 4032, height: 3024) // for ios 16.0*
+            }
             status = .configured
         } else {
             print("CameraManager: Could not add photo output to the session")
@@ -192,8 +194,10 @@ class CameraManager: ObservableObject {
           if self.videoDeviceInput!.device.isFlashAvailable {
              photoSettings.flashMode = self.flashMode
           }
-      
-          photoSettings.maxPhotoDimensions = .init(width: 4032, height: 3024)
+           
+           if self.position == .back {
+               photoSettings.maxPhotoDimensions = .init(width: 4032, height: 3024)
+           }
       
           // Specify photo quality and preview format
           if let previewPhotoPixelFormatType = photoSettings.availablePreviewPhotoPixelFormatTypes.first {

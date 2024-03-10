@@ -19,18 +19,31 @@ struct CameraScreen: View {
     var body: some View {
         GeometryReader { geometry in
             ZStack {
-                Color.gray.edgesIgnoringSafeArea(.all)
+                Color.black.edgesIgnoringSafeArea(.all)
                 
                 VStack(spacing: 0) {
+                    
                     HStack {
-                        
-                        Rectangle()
-                            .fill(Color(uiColor: viewModel.mostCommonColor ?? .green))
-                            .frame(width: 100, height: 100, alignment: .leading)
-                        
-                        VStack {
-                            Text("Color Name").bold()
-                            Text(viewModel.colorEx ?? "")
+                        if viewModel.isLoading {
+                            ProgressView()
+                                .tint(.blue)
+                                .frame(width: 100, height: 100, alignment: .leading)
+                        } else {
+                            Rectangle()
+                                .fill(Color(uiColor: viewModel.mostCommonColor ?? .green))
+                                .frame(width: 100, height: 100, alignment: .leading)
+                        }
+                       
+                        VStack (alignment: .leading) {
+                            Text(viewModel.colorName ?? "Color Name").bold()
+                            if viewModel.isLoading {
+                                HStack {
+                                    Text("Loading ...")
+                                    ProgressView()
+                                }
+                            } else {
+                                Text(viewModel.colorEx ?? "")
+                            }
                         }
                     }
                     .padding(8)
@@ -64,14 +77,12 @@ struct CameraScreen: View {
                         IconButton(systemName: "camera.rotate.fill") { viewModel.switchCamera() }
                         
                         // Aggiungi il bottone di cattura e l'azione associata
-                                                Button(action: {
-                                                    viewModel.captureImage()
-                                                }) {
-                                                    Image(systemName: "camera.circle.fill")
-                                                        .font(.system(size: 30))
-                                                        .foregroundColor(.white)
-                                                }
-                                                .padding(20)
+                        Button(action: {
+                            viewModel.captureImage()
+                        }) {
+                            Text("Start Acquiring")
+                        }
+                        .padding(20)
                     }
                     .padding(20)
                 }

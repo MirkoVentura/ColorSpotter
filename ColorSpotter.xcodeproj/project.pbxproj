@@ -23,6 +23,8 @@
 		3A894AD92B9CA6BE00793209 /* Notifications+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A894AD82B9CA6BE00793209 /* Notifications+Extension.swift */; };
 		3A894ADB2B9CA9B900793209 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A894ADA2B9CA9B900793209 /* UIColor+Extension.swift */; };
 		3ACE25F82B9DBC3F0047DF2F /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACE25F72B9DBC3F0047DF2F /* UIImage+Extension.swift */; };
+		3ACE25FD2B9DC9620047DF2F /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACE25FC2B9DC9620047DF2F /* ApiService.swift */; };
+		3ACE26032B9DCC7F0047DF2F /* ColorData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACE26022B9DCC7F0047DF2F /* ColorData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +64,8 @@
 		3A894AD82B9CA6BE00793209 /* Notifications+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notifications+Extension.swift"; sourceTree = "<group>"; };
 		3A894ADA2B9CA9B900793209 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		3ACE25F72B9DBC3F0047DF2F /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
+		3ACE25FC2B9DC9620047DF2F /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
+		3ACE26022B9DCC7F0047DF2F /* ColorData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,10 +96,9 @@
 		3A48D5A12B9CCAAD00F1901B /* CameraPreview */ = {
 			isa = PBXGroup;
 			children = (
-				3A48D5A22B9CCAB800F1901B /* CameraPreview.swift */,
-				3A48D5A42B9CCAED00F1901B /* CameraManager.swift */,
-				3A48D5A62B9CCBCF00F1901B /* CameraViewModel.swift */,
-				3A48D5A82B9CCC0F00F1901B /* CameraScreen.swift */,
+				3ACE26002B9DCC590047DF2F /* ViewModels */,
+				3ACE25FF2B9DCC400047DF2F /* UIComponents */,
+				3ACE25FE2B9DCC230047DF2F /* Service */,
 			);
 			path = CameraPreview;
 			sourceTree = "<group>";
@@ -103,6 +106,8 @@
 		3A48D5AA2B9CDD2300F1901B /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				3ACE26012B9DCC6B0047DF2F /* Model */,
+				3ACE25FB2B9DC9510047DF2F /* Serivce */,
 				3A48D5AB2B9CDD3300F1901B /* IconButton.swift */,
 				3A48D5AD2B9CDDFB00F1901B /* VisualEffectView.swift */,
 			);
@@ -176,6 +181,47 @@
 				3ACE25F72B9DBC3F0047DF2F /* UIImage+Extension.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		3ACE25FB2B9DC9510047DF2F /* Serivce */ = {
+			isa = PBXGroup;
+			children = (
+				3ACE25FC2B9DC9620047DF2F /* ApiService.swift */,
+			);
+			path = Serivce;
+			sourceTree = "<group>";
+		};
+		3ACE25FE2B9DCC230047DF2F /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				3A48D5A42B9CCAED00F1901B /* CameraManager.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		3ACE25FF2B9DCC400047DF2F /* UIComponents */ = {
+			isa = PBXGroup;
+			children = (
+				3A48D5A22B9CCAB800F1901B /* CameraPreview.swift */,
+				3A48D5A82B9CCC0F00F1901B /* CameraScreen.swift */,
+			);
+			path = UIComponents;
+			sourceTree = "<group>";
+		};
+		3ACE26002B9DCC590047DF2F /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				3A48D5A62B9CCBCF00F1901B /* CameraViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		3ACE26012B9DCC6B0047DF2F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3ACE26022B9DCC7F0047DF2F /* ColorData.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -309,7 +355,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				3A48D5AC2B9CDD3300F1901B /* IconButton.swift in Sources */,
+				3ACE26032B9DCC7F0047DF2F /* ColorData.swift in Sources */,
 				3A894AA72B9B89C700793209 /* ContentView.swift in Sources */,
+				3ACE25FD2B9DC9620047DF2F /* ApiService.swift in Sources */,
 				3A48D5A52B9CCAED00F1901B /* CameraManager.swift in Sources */,
 				3A48D5A32B9CCAB800F1901B /* CameraPreview.swift in Sources */,
 				3A48D5A72B9CCBCF00F1901B /* CameraViewModel.swift in Sources */,

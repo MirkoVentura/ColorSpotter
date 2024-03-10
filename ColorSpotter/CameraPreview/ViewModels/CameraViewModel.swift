@@ -19,9 +19,10 @@ class CameraViewModel: ObservableObject {
     @Published var showSettingAlert = false
     @Published var isPermissionGranted: Bool = false
     
-    @Published var capturedImage: UIImage?
     @Published var mostCommonColor: UIColor?
     @Published var colorEx: String?
+    @Published var colorName: String?
+    @Published var isLoading: Bool = false
     
     var alertError: AlertError!
     var session: AVCaptureSession = .init()
@@ -42,10 +43,12 @@ class CameraViewModel: ObservableObject {
         }
         .store(in: &cancelables)
         
-        cameraManager.$capturedImage.sink { [weak self] image in
-            self?.capturedImage = image
+        cameraManager.$capturedImage
+            .sink { [weak self] image in
             self?.mostCommonColor = image?.areaAvarage()
             self?.colorEx = self?.mostCommonColor?.toHex()
+            self?.isLoading = false
+            self?.getColorName()
         }.store(in: &cancelables)
     }
     
@@ -67,6 +70,7 @@ class CameraViewModel: ObservableObject {
     }
     
     func captureImage() {
+        isLoading = true
         requestGalleryPermission()
           let permission = checkGalleryPermissionStatus()
           if permission.rawValue != 2 {
@@ -117,52 +121,40 @@ class CameraViewModel: ObservableObject {
         return PHPhotoLibrary.authorizationStatus()
     }
     
-    func findMostCommonColor(in image: UIImage, at point: CGPoint, completion: @escaping (UIColor?) -> Void) {
-        
-        DispatchQueue.global(qos: .background).async {
-            
-            guard let cgImage = image.cgImage,
-                let pixelData = cgImage.dataProvider?.data,
-                let pixelBuffer = CFDataGetBytePtr(pixelData) else {
-                    completion(nil)
-                    return
-            }
-            
-            let bytesPerPixel = 4
-           
-            // Create a dictionary to store counts of colors in chunks
-            var colorCounts = [UIColor: Int]()
-            
-            // Define the chunk size (e.g., 10x10 pixels)
-            let chunkSize = CGSize(width: 10, height: 10)
-            
-            // Iterate through pixels in the region around the target point
-            let startX = max(0, Int(point.x) - Int(chunkSize.width) / 2)
-            let startY = max(0, Int(point.y) - Int(chunkSize.height) / 2)
-            let endX = min(cgImage.width, Int(point.x) + Int(chunkSize.width) / 2)
-            let endY = min(cgImage.height, Int(point.y) + Int(chunkSize.height) / 2)
-            
-            for x in startX..<endX {
-                for y in startY..<endY {
-                    let pixelInfo = Int((y * cgImage.width + x) * bytesPerPixel)
-                    
-                    let r = CGFloat(pixelBuffer[pixelInfo]) / 255.0
-                    let g = CGFloat(pixelBuffer[pixelInfo + 1]) / 255.0
-                    let b = CGFloat(pixelBuffer[pixelInfo + 2]) / 255.0
-                    let a = CGFloat(pixelBuffer[pixelInfo + 3]) / 255.0
-                    
-                    let color = UIColor(red: r, green: g, blue: b, alpha: a)
-                    
-                    // Increment count for this color in the dictionary
-                    colorCounts[color, default: 0] += 1
-                }
-            }
-            
-            // Find the color with the highest count
-            let mostCommonColor = colorCounts.max { $0.1 < $1.1 }?.key
-            
-            DispatchQueue.main.async {
-                completion(mostCommonColor)
+    func getColorName() {
+        let apiService = APIService()
+
+        if let colorEx = self.colorEx {
+            let exCode = colorEx.replacingOccurrences(of: "#", with: "")
+            self.isLoading = true
+            if let url = URL(string: "https://www.thecolorapi.com/id?hex=\(exCode)") {
+                print(url)
+                apiService.fetchData(from: url)
+                    .receive(on: DispatchQueue.main)
+                    .flatMap { data -> AnyPublisher<ColorData, Error> in
+                        do {
+                            let colorData = try JSONDecoder().decode(ColorData.self, from: data)
+                            return Just(colorData)
+                                .setFailureType(to: Error.self)
+                                .eraseToAnyPublisher()
+                        } catch {
+                            return Fail(error: error).eraseToAnyPublisher()
+                        }
+                    }
+                    .sink(receiveCompletion: { completion in
+                        self.isLoading = false
+                        switch completion {
+                        case .finished:
+                            print("Richiesta completata con successo")
+                        case .failure(let error):
+                            print("Errore durante la richiesta: \(error)")
+                        }
+                    }, receiveValue: { colorData in
+                        print("ColorData decodificato: \(colorData)")
+                        self.colorName = colorData.name.value
+                        // Utilizza il ColorData decodificato qui
+                    })
+                    .store(in: &cancelables)
             }
         }
     }
