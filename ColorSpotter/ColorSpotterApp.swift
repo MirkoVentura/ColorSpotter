@@ -11,12 +11,7 @@ import SwiftUI
 struct ColorSpotterApp: App {
     var body: some Scene {
         WindowGroup {
-            CameraView(
-                viewModel: .init(
-                    lastAcquiredColor: .constant(.clear),
-                    mostCommonColor: .constant(.clear)
-                )
-            )
+            ContentView()
         }
     }
 }
