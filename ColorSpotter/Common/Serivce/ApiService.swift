@@ -12,7 +12,6 @@ enum APIError: Error {
     case invalidURL
     case invalidResponse
     case requestFailed
-    // Altri possibili errori, come errori di parsing, possono essere aggiunti qui
 }
 
 struct APIService {

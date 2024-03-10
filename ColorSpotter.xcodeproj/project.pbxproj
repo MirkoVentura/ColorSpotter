@@ -25,6 +25,12 @@
 		3ACE25F82B9DBC3F0047DF2F /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACE25F72B9DBC3F0047DF2F /* UIImage+Extension.swift */; };
 		3ACE25FD2B9DC9620047DF2F /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACE25FC2B9DC9620047DF2F /* ApiService.swift */; };
 		3ACE26032B9DCC7F0047DF2F /* ColorData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACE26022B9DCC7F0047DF2F /* ColorData.swift */; };
+		3ACE26052B9DD5020047DF2F /* CameraManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACE26042B9DD5010047DF2F /* CameraManagerTests.swift */; };
+		3ACE26082B9DF1590047DF2F /* ColorListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACE26072B9DF1590047DF2F /* ColorListViewModel.swift */; };
+		3ACE260A2B9DF1EB0047DF2F /* ColorListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACE26092B9DF1EB0047DF2F /* ColorListView.swift */; };
+		3ACE260C2B9DF4720047DF2F /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACE260B2B9DF4720047DF2F /* Color+Extension.swift */; };
+		3ACE260E2B9DFA8E0047DF2F /* ItemManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACE260D2B9DFA8E0047DF2F /* ItemManager.swift */; };
+		3ACE26102B9DFE600047DF2F /* AlertErrror.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACE260F2B9DFE600047DF2F /* AlertErrror.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +51,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3A087A742B9E0A81007B7371 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		3A48D5A22B9CCAB800F1901B /* CameraPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPreview.swift; sourceTree = "<group>"; };
 		3A48D5A42B9CCAED00F1901B /* CameraManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraManager.swift; sourceTree = "<group>"; };
 		3A48D5A62B9CCBCF00F1901B /* CameraViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewModel.swift; sourceTree = "<group>"; };
@@ -66,6 +73,12 @@
 		3ACE25F72B9DBC3F0047DF2F /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		3ACE25FC2B9DC9620047DF2F /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
 		3ACE26022B9DCC7F0047DF2F /* ColorData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorData.swift; sourceTree = "<group>"; };
+		3ACE26042B9DD5010047DF2F /* CameraManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraManagerTests.swift; sourceTree = "<group>"; };
+		3ACE26072B9DF1590047DF2F /* ColorListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorListViewModel.swift; sourceTree = "<group>"; };
+		3ACE26092B9DF1EB0047DF2F /* ColorListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorListView.swift; sourceTree = "<group>"; };
+		3ACE260B2B9DF4720047DF2F /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
+		3ACE260D2B9DFA8E0047DF2F /* ItemManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemManager.swift; sourceTree = "<group>"; };
+		3ACE260F2B9DFE600047DF2F /* AlertErrror.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertErrror.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +150,8 @@
 		3A894AA32B9B89C700793209 /* ColorSpotter */ = {
 			isa = PBXGroup;
 			children = (
+				3A087A742B9E0A81007B7371 /* Info.plist */,
+				3ACE26062B9DF0FF0047DF2F /* ColorList */,
 				3A48D5AA2B9CDD2300F1901B /* Common */,
 				3A48D5A12B9CCAAD00F1901B /* CameraPreview */,
 				3A894AD72B9CA6AB00793209 /* Utils */,
@@ -160,6 +175,7 @@
 			isa = PBXGroup;
 			children = (
 				3A894AB52B9B89C900793209 /* ColorSpotterTests.swift */,
+				3ACE26042B9DD5010047DF2F /* CameraManagerTests.swift */,
 			);
 			path = ColorSpotterTests;
 			sourceTree = "<group>";
@@ -179,6 +195,7 @@
 				3A894AD82B9CA6BE00793209 /* Notifications+Extension.swift */,
 				3A894ADA2B9CA9B900793209 /* UIColor+Extension.swift */,
 				3ACE25F72B9DBC3F0047DF2F /* UIImage+Extension.swift */,
+				3ACE260B2B9DF4720047DF2F /* Color+Extension.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -186,6 +203,7 @@
 		3ACE25FB2B9DC9510047DF2F /* Serivce */ = {
 			isa = PBXGroup;
 			children = (
+				3ACE260D2B9DFA8E0047DF2F /* ItemManager.swift */,
 				3ACE25FC2B9DC9620047DF2F /* ApiService.swift */,
 			);
 			path = Serivce;
@@ -220,8 +238,18 @@
 			isa = PBXGroup;
 			children = (
 				3ACE26022B9DCC7F0047DF2F /* ColorData.swift */,
+				3ACE260F2B9DFE600047DF2F /* AlertErrror.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		3ACE26062B9DF0FF0047DF2F /* ColorList */ = {
+			isa = PBXGroup;
+			children = (
+				3ACE26072B9DF1590047DF2F /* ColorListViewModel.swift */,
+				3ACE26092B9DF1EB0047DF2F /* ColorListView.swift */,
+			);
+			path = ColorList;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -356,10 +384,13 @@
 			files = (
 				3A48D5AC2B9CDD3300F1901B /* IconButton.swift in Sources */,
 				3ACE26032B9DCC7F0047DF2F /* ColorData.swift in Sources */,
+				3ACE26102B9DFE600047DF2F /* AlertErrror.swift in Sources */,
+				3ACE26082B9DF1590047DF2F /* ColorListViewModel.swift in Sources */,
 				3A894AA72B9B89C700793209 /* ContentView.swift in Sources */,
 				3ACE25FD2B9DC9620047DF2F /* ApiService.swift in Sources */,
 				3A48D5A52B9CCAED00F1901B /* CameraManager.swift in Sources */,
 				3A48D5A32B9CCAB800F1901B /* CameraPreview.swift in Sources */,
+				3ACE260C2B9DF4720047DF2F /* Color+Extension.swift in Sources */,
 				3A48D5A72B9CCBCF00F1901B /* CameraViewModel.swift in Sources */,
 				3A48D5AE2B9CDDFB00F1901B /* VisualEffectView.swift in Sources */,
 				3A894AA52B9B89C700793209 /* ColorSpotterApp.swift in Sources */,
@@ -367,6 +398,8 @@
 				3A48D5A92B9CCC0F00F1901B /* CameraScreen.swift in Sources */,
 				3ACE25F82B9DBC3F0047DF2F /* UIImage+Extension.swift in Sources */,
 				3A894ADB2B9CA9B900793209 /* UIColor+Extension.swift in Sources */,
+				3ACE260A2B9DF1EB0047DF2F /* ColorListView.swift in Sources */,
+				3ACE260E2B9DFA8E0047DF2F /* ItemManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -374,6 +407,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3ACE26052B9DD5020047DF2F /* CameraManagerTests.swift in Sources */,
 				3A894AB62B9B89C900793209 /* ColorSpotterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -533,11 +567,11 @@
 				DEVELOPMENT_TEAM = CWD8J9NCB8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ColorSpotter/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Usiamo la fotocamera per individuare l'oggetto da cui ricavare il colore";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "just to take the image temporary";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
@@ -565,11 +599,11 @@
 				DEVELOPMENT_TEAM = CWD8J9NCB8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ColorSpotter/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Usiamo la fotocamera per individuare l'oggetto da cui ricavare il colore";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "just to take the image temporary";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.6;

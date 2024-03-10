@@ -19,7 +19,7 @@ enum Status {
 class CameraManager: ObservableObject {
     
     @Published var capturedImage: UIImage? = nil
-    @Published private var flashMode: AVCaptureDevice.FlashMode = .off
+    @Published var flashMode: AVCaptureDevice.FlashMode = .off
     
     @Published var status = Status.unconfigured
     @Published var shouldShowAlertView = false
@@ -88,9 +88,9 @@ class CameraManager: ObservableObject {
             session.addOutput(photoOutput)
             //photoOutput.isHighResolutionCaptureEnabled = true
             photoOutput.maxPhotoQualityPrioritization = .quality // work for ios 15.6 and the older versions
-            if position == .back {
-                photoOutput.maxPhotoDimensions = .init(width: 4032, height: 3024) // for ios 16.0*
-            }
+//            if position == .back {
+//                photoOutput.maxPhotoDimensions = .init(width: 4032, height: 3024) // for ios 16.0*
+//            }
             status = .configured
         } else {
             print("CameraManager: Could not add photo output to the session")
@@ -100,7 +100,7 @@ class CameraManager: ObservableObject {
         }
     }
     
-    private func startCapturing() {
+    func startCapturing() {
         if status == .configured {
             self.session.startRunning()
         } else if status == .unconfigured || status == .unauthorized {
@@ -195,9 +195,9 @@ class CameraManager: ObservableObject {
              photoSettings.flashMode = self.flashMode
           }
            
-           if self.position == .back {
-               photoSettings.maxPhotoDimensions = .init(width: 4032, height: 3024)
-           }
+//           if self.position == .back {
+//               photoSettings.maxPhotoDimensions = (AVCaptureDevice.Format.supportedMaxPhotoDimensions
+//           }
       
           // Specify photo quality and preview format
           if let previewPhotoPixelFormatType = photoSettings.availablePreviewPhotoPixelFormatTypes.first {
@@ -249,21 +249,4 @@ class CameraDelegate: NSObject, AVCapturePhotoCaptureDelegate {
         }
     }
 
-}
-
-public struct AlertError {
-    public var title: String = ""
-    public var message: String = ""
-    public var primaryButtonTitle = "Accept"
-    public var secondaryButtonTitle: String?
-    public var primaryAction: (() -> ())?
-    public var secondaryAction: (() -> ())?
-    
-    public init(title: String = "", message: String = "", primaryButtonTitle: String = "Accept", secondaryButtonTitle: String? = nil, primaryAction: (() -> ())? = nil, secondaryAction: (() -> ())? = nil) {
-        self.title = title
-        self.message = message
-        self.primaryAction = primaryAction
-        self.primaryButtonTitle = primaryButtonTitle
-        self.secondaryAction = secondaryAction
-    }
 }

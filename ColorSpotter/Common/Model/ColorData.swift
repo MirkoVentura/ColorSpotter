@@ -7,10 +7,10 @@
 
 import Foundation
 
-struct ColorData: Codable {
+struct ColorData: Codable, Identifiable {
+    public var id: UUID { UUID() }
     let hex: ColorData.Hex
     let name: ColorData.Name
-    // Aggiungi altre proprietà necessarie
 }
 
 extension ColorData {

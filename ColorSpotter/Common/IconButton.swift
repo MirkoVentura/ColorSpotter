@@ -24,7 +24,5 @@ struct IconButton: View {
 }
 
 #Preview {
-    IconButton(systemName: "camera.rotate.fill") {
-        
-    }
+    IconButton(systemName: "camera.rotate.fill") {}
 }

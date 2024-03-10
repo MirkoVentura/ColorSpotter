@@ -23,13 +23,16 @@ class CameraViewModel: ObservableObject {
     @Published var colorEx: String?
     @Published var colorName: String?
     @Published var isLoading: Bool = false
-    
+        
     var alertError: AlertError!
     var session: AVCaptureSession = .init()
     private var cancelables = Set<AnyCancellable>()
+    private var lastAcquiredColor: ColorData?
+    let itemManager = ItemManager()
     
     init() {
         session = cameraManager.session
+        setupBindings()
     }
     
     deinit {
@@ -47,8 +50,9 @@ class CameraViewModel: ObservableObject {
             .sink { [weak self] image in
             self?.mostCommonColor = image?.areaAvarage()
             self?.colorEx = self?.mostCommonColor?.toHex()
-            self?.isLoading = false
-            self?.getColorName()
+            if self?.colorEx != self?.lastAcquiredColor?.hex.value {
+                self?.getColorName()
+            }
         }.store(in: &cancelables)
     }
     
@@ -128,7 +132,6 @@ class CameraViewModel: ObservableObject {
             let exCode = colorEx.replacingOccurrences(of: "#", with: "")
             self.isLoading = true
             if let url = URL(string: "https://www.thecolorapi.com/id?hex=\(exCode)") {
-                print(url)
                 apiService.fetchData(from: url)
                     .receive(on: DispatchQueue.main)
                     .flatMap { data -> AnyPublisher<ColorData, Error> in
@@ -152,10 +155,31 @@ class CameraViewModel: ObservableObject {
                     }, receiveValue: { colorData in
                         print("ColorData decodificato: \(colorData)")
                         self.colorName = colorData.name.value
+                        self.lastAcquiredColor = colorData
                         // Utilizza il ColorData decodificato qui
                     })
                     .store(in: &cancelables)
             }
+        }
+    }
+    
+    func storeLastColor() {
+        var items: [ColorData] = itemManager.loadItems()
+        if let lastColor = self.lastAcquiredColor {
+            
+            if items.contains(where: { $0.name.value == lastColor.name.value}) {
+                self.alertError = AlertError()
+                self.alertError.message = "Item already in list"
+                self.showAlertError = true
+                return
+            }
+            
+            items.append(lastColor)
+            itemManager.saveItems(items: items)
+            
+            self.alertError = AlertError()
+            self.alertError.message = "Color Stored correctly"
+            self.showAlertError = true
         }
     }
 }
