@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3A3ADAB42B9E870800E1F40D /* ColorListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3ADAB32B9E870800E1F40D /* ColorListViewModelTests.swift */; };
 		3A48D5A32B9CCAB800F1901B /* CameraPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A48D5A22B9CCAB800F1901B /* CameraPreview.swift */; };
 		3A48D5A52B9CCAED00F1901B /* CameraManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A48D5A42B9CCAED00F1901B /* CameraManager.swift */; };
 		3A48D5A72B9CCBCF00F1901B /* CameraViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A48D5A62B9CCBCF00F1901B /* CameraViewModel.swift */; };
@@ -52,6 +53,7 @@
 
 /* Begin PBXFileReference section */
 		3A087A742B9E0A81007B7371 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		3A3ADAB32B9E870800E1F40D /* ColorListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorListViewModelTests.swift; sourceTree = "<group>"; };
 		3A48D5A22B9CCAB800F1901B /* CameraPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPreview.swift; sourceTree = "<group>"; };
 		3A48D5A42B9CCAED00F1901B /* CameraManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraManager.swift; sourceTree = "<group>"; };
 		3A48D5A62B9CCBCF00F1901B /* CameraViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewModel.swift; sourceTree = "<group>"; };
@@ -176,6 +178,7 @@
 			children = (
 				3AD5927F2B9E3CAF003499E6 /* Mocks */,
 				3ACE26042B9DD5010047DF2F /* CameraViewModelTests.swift */,
+				3A3ADAB32B9E870800E1F40D /* ColorListViewModelTests.swift */,
 			);
 			path = ColorSpotterTests;
 			sourceTree = "<group>";
@@ -415,6 +418,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A3ADAB42B9E870800E1F40D /* ColorListViewModelTests.swift in Sources */,
 				3ACE26052B9DD5020047DF2F /* CameraViewModelTests.swift in Sources */,
 				3AD592812B9E3CC5003499E6 /* Mocks.swift in Sources */,
 			);

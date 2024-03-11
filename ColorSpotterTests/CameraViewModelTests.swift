@@ -100,13 +100,25 @@ class CameraViewModelTests: XCTestCase {
         XCTAssertNil(cameraViewModel.colorName)
         XCTAssertFalse(cameraViewModel.isLoading)
     }
+    
     func testStoreLastColorWhenColorAlreadyExists() {
-        let existingColor = ColorData(hex: .init(value: "#FFFFFF", clean: "FFFFFF"), name: .init(value: "white", closestNamedHex: "#FFF", exactMatchName: true, distance: 0))
+        let existingColor = ColorData(hex: .init(value: "#FFFFFF", clean: "FFFFFF"), name: .init(value: "White", closestNamedHex: "#FFF", exactMatchName: true, distance: 0))
+        cameraViewModel.itemManager = ItemManagerMock()
         cameraViewModel.lastAcquiredColor = existingColor
         cameraViewModel.storeLastColor()
 
         XCTAssertTrue(cameraViewModel.showAlertError)
         XCTAssertEqual(cameraViewModel.alertError.message, "Item already in list")
+    }
+    
+    func testStoreLastColorWhenColorNotExists() {
+        let newColor = ColorData(hex: .init(value: "#000000", clean: "000000"), name: .init(value: "Black", closestNamedHex: "#000'", exactMatchName: true, distance: 0))
+        cameraViewModel.itemManager = ItemManagerMock()
+        cameraViewModel.lastAcquiredColor = newColor
+        cameraViewModel.storeLastColor()
+
+        XCTAssertTrue(cameraViewModel.showAlertError)
+        XCTAssertEqual(cameraViewModel.alertError.message, "Color Stored correctly")
     }
 }
 

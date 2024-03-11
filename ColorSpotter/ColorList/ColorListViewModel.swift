@@ -9,7 +9,7 @@ import Foundation
 class ColorListViewModel: ObservableObject {
     @Published var items: [ColorData] = []
     @Published var isAscendingOrder = true
-    let itemManager = ItemManager()
+    var itemManager: ItemManageble = ItemManager()
     
     func loadItems() {
         self.items = itemManager.loadItems()

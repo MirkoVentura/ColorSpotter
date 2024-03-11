@@ -27,7 +27,7 @@ class CameraViewModel<Manager>: ObservableObject where Manager: CameraManaging {
     var session: AVCaptureSession = .init()
     private var cancelables = Set<AnyCancellable>()
     var lastAcquiredColor: ColorData?
-    let itemManager = ItemManager()
+    var itemManager: ItemManageble = ItemManager()
     var apiService: ApiServiceProtocol = APIService()
 
     init(cameraManager: Manager) {

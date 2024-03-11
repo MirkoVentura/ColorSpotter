@@ -7,7 +7,13 @@
 
 import Foundation
 
-class ItemManager {
+protocol ItemManageble {
+    func loadItems() -> [ColorData]
+    func saveItems(items: [ColorData])
+}
+
+
+class ItemManager: ItemManageble {
     func loadItems() -> [ColorData] {
         if let data = UserDefaults.standard.data(forKey: "items") {
             do {

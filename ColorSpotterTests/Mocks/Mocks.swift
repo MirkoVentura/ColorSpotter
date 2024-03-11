@@ -76,3 +76,22 @@ class CameraManagerMock: CameraManaging {
         self.capturedImage = UIImage() // Restituisce un'immagine vuota o un'immagine mock
     }
 }
+
+
+class ItemManagerMock: ItemManageble {
+    private var memoryItems: [ColorData]  = [.init(hex: .init(value: "#FFFFFF", clean: "#FFF"), name: .init(value: "White", closestNamedHex: "#FFF", exactMatchName: true, distance: 0))]
+    
+    func loadItems() -> [ColorSpotter.ColorData] {
+        return memoryItems
+    }
+    
+    func saveItems(items: [ColorSpotter.ColorData]) {
+        items.forEach { color in
+            if !self.memoryItems.contains(where: {$0.name.value == color.name.value}) {
+                self.memoryItems.append(color)
+            }
+        }
+    }
+    
+    
+}
