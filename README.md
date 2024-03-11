@@ -4,8 +4,8 @@
 This project serves as an example of utilizing the camera feature in iOS apps using SwiftUI along with the MVVM (Model-View-ViewModel) architectural pattern. By following this project, developers can understand how to integrate camera functionality into their SwiftUI-based applications while adhering to best practices in code organization and separation of concerns through MVVM.
 
 ## Features
-- Capture photos using the device's camera
-- Display captured photos in the app
+- Display the avarage color of the captured image in the app
+- Store and manage a list of captured color
 - Utilize MVVM pattern for improved code maintainability and scalability
 
 ## Requirements
