@@ -22,7 +22,7 @@ class CameraViewModel<Manager>: ObservableObject where Manager: CameraManaging {
     @Published var colorEx: String?
     @Published var colorName: String?
     @Published var isLoading: Bool = false
-        
+    
     var alertError: AlertError!
     var session: AVCaptureSession = .init()
     private var cancelables = Set<AnyCancellable>()
@@ -53,6 +53,8 @@ class CameraViewModel<Manager>: ObservableObject where Manager: CameraManaging {
             self?.colorEx = self?.mostCommonColor?.toHex()
             if self?.colorEx != self?.lastAcquiredColor?.hex.value {
                 self?.getColorName()
+            } else {
+                self?.isLoading = false 
             }
         }.store(in: &cancelables)
     }
