@@ -1,5 +1,5 @@
 //
-//  CameraScreen.swift
+//  CameraScreenView.swift
 //  ColorSpotter
 //
 //  Created by Mirko Ventura on 09/03/24.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct CameraScreen: View {
+struct CameraScreenView: View {
     @ObservedObject var viewModel = CameraViewModel(cameraManager: CameraManager())
 
     @State private var navigateToNewView = false
@@ -75,7 +75,7 @@ struct CameraScreen: View {
                                         .frame(width: 150, height: 150)
                                 )
                                 .blendMode(.destinationOut)
-                                .alert(isPresented: $viewModel.showAlertError) {
+                                .alert(isPresented: ($viewModel.showAlertError)) {
                                     Alert(title: Text(viewModel.alertError.title), message: Text(viewModel.alertError.message), dismissButton: .default(Text(viewModel.alertError.primaryButtonTitle), action: {
                                         viewModel.alertError.primaryAction?()
                                     }))
@@ -83,6 +83,11 @@ struct CameraScreen: View {
                                 .alert(isPresented: $viewModel.showSettingAlert) {
                                     Alert(title: Text("Warning"), message: Text("Application doesn't have all permissions to use camera and microphone, please change privacy settings."), dismissButton: .default(Text("Go to settings"), action: {
                                         self.openSettings()
+                                    }))
+                                }
+                                .alert(isPresented: ($viewModel.showAlertInfo)) {
+                                    Alert(title: Text(viewModel.alertError.title), message: Text(viewModel.alertError.message), dismissButton: .default(Text(viewModel.alertError.primaryButtonTitle), action: {
+                                        viewModel.alertError.primaryAction?()
                                     }))
                                 }
                         }
@@ -94,7 +99,6 @@ struct CameraScreen: View {
                             
                             IconButton(systemName: "camera.rotate.fill") { viewModel.switchCamera() }
                             
-                            // Aggiungi il bottone di cattura e l'azione associata
                             Button(action: {
                                 viewModel.captureImage()
                             }) {
@@ -131,6 +135,6 @@ struct CameraScreen: View {
 
 struct CameraScreen_Previews: PreviewProvider {
     static var previews: some View {
-        CameraScreen()
+        CameraScreenView()
     }
 }

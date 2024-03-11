@@ -107,7 +107,7 @@ class CameraViewModelTests: XCTestCase {
         cameraViewModel.lastAcquiredColor = existingColor
         cameraViewModel.storeLastColor()
 
-        XCTAssertTrue(cameraViewModel.showAlertError)
+        XCTAssertTrue(cameraViewModel.showAlertInfo)
         XCTAssertEqual(cameraViewModel.alertError.message, "Item already in list")
     }
     
@@ -117,7 +117,7 @@ class CameraViewModelTests: XCTestCase {
         cameraViewModel.lastAcquiredColor = newColor
         cameraViewModel.storeLastColor()
 
-        XCTAssertTrue(cameraViewModel.showAlertError)
+        XCTAssertTrue(cameraViewModel.showAlertInfo)
         XCTAssertEqual(cameraViewModel.alertError.message, "Color Stored correctly")
     }
 }

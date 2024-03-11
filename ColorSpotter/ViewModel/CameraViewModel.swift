@@ -22,6 +22,7 @@ class CameraViewModel<Manager>: ObservableObject where Manager: CameraManaging {
     @Published var colorEx: String?
     @Published var colorName: String?
     @Published var isLoading: Bool = false
+    @Published var showAlertInfo: Bool = false
     
     var alertError: AlertError!
     var session: AVCaptureSession = .init()
@@ -150,7 +151,7 @@ class CameraViewModel<Manager>: ObservableObject where Manager: CameraManaging {
             if items.contains(where: { $0.name.value == lastColor.name.value}) {
                 self.alertError = AlertError()
                 self.alertError.message = "Item already in list"
-                self.showAlertError = true
+                self.showAlertInfo = true
                 return
             }
             
@@ -159,7 +160,7 @@ class CameraViewModel<Manager>: ObservableObject where Manager: CameraManaging {
             
             self.alertError = AlertError()
             self.alertError.message = "Color Stored correctly"
-            self.showAlertError = true
+            self.showAlertInfo = true
         }
     }
 }
