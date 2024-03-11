@@ -31,7 +31,7 @@ This project follows the MVVM (Model-View-ViewModel) architectural pattern:
 - **Model**: Represents the data and business logic of the application.
 - **View**: Presents the user interface and interacts with the ViewModel.
 - **ViewModel**: Acts as an intermediary between the Model and the View, processing data from the Model and updating the View accordingly.
-- **Services**: All the non strictly related to View components
+- **Services**: All the non strictly related to View components, generally called only from **ViewModel**
 - **Util**: Extensions to swift code to implement the app.
 
 ## Dependencies
