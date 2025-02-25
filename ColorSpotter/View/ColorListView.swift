@@ -37,7 +37,7 @@ struct ColorListView: View {
                 .onAppear() {
                     viewModel.loadItems()
                 }
-                .navigationBarTitle("List of Items")
+                .navigationBarTitle("Color palette")
                 .navigationBarItems(trailing:
                     Button(action: {
                     // Add a new item to the list

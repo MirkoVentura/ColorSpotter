@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CameraScreenView: View {
-    @ObservedObject var viewModel = CameraViewModel(cameraManager: CameraManager())
+    @StateObject var viewModel = CameraViewModel(cameraManager: CameraManager())
 
     @State private var navigateToNewView = false
 
