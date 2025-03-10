@@ -61,7 +61,7 @@
 		3A48D5A82B9CCC0F00F1901B /* CameraScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraScreenView.swift; sourceTree = "<group>"; };
 		3A48D5AB2B9CDD3300F1901B /* IconButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconButton.swift; sourceTree = "<group>"; };
 		3A48D5AD2B9CDDFB00F1901B /* VisualEffectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisualEffectView.swift; sourceTree = "<group>"; };
-		3A894AA12B9B89C700793209 /* ColorSpotter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ColorSpotter.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3A894AA12B9B89C700793209 /* HueScan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HueScan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A894AA42B9B89C700793209 /* ColorSpotterApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSpotterApp.swift; sourceTree = "<group>"; };
 		3A894AA62B9B89C700793209 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		3A894AA82B9B89C900793209 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -162,7 +162,7 @@
 		3A894AA22B9B89C700793209 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				3A894AA12B9B89C700793209 /* ColorSpotter.app */,
+				3A894AA12B9B89C700793209 /* HueScan.app */,
 				3A894AB12B9B89C900793209 /* ColorSpotterTests.xctest */,
 				3A894ABB2B9B89C900793209 /* ColorSpotterUITests.xctest */,
 			);
@@ -245,9 +245,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		3A894AA02B9B89C700793209 /* ColorSpotter */ = {
+		3A894AA02B9B89C700793209 /* HueScan */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3A894AC52B9B89C900793209 /* Build configuration list for PBXNativeTarget "ColorSpotter" */;
+			buildConfigurationList = 3A894AC52B9B89C900793209 /* Build configuration list for PBXNativeTarget "HueScan" */;
 			buildPhases = (
 				3A894A9D2B9B89C700793209 /* Sources */,
 				3A894A9E2B9B89C700793209 /* Frameworks */,
@@ -257,9 +257,9 @@
 			);
 			dependencies = (
 			);
-			name = ColorSpotter;
+			name = HueScan;
 			productName = ColorSpotter;
-			productReference = 3A894AA12B9B89C700793209 /* ColorSpotter.app */;
+			productReference = 3A894AA12B9B89C700793209 /* HueScan.app */;
 			productType = "com.apple.product-type.application";
 		};
 		3A894AB02B9B89C900793209 /* ColorSpotterTests */ = {
@@ -334,7 +334,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				3A894AA02B9B89C700793209 /* ColorSpotter */,
+				3A894AA02B9B89C700793209 /* HueScan */,
 				3A894AB02B9B89C900793209 /* ColorSpotterTests */,
 				3A894ABA2B9B89C900793209 /* ColorSpotterUITests */,
 			);
@@ -418,12 +418,12 @@
 /* Begin PBXTargetDependency section */
 		3A894AB32B9B89C900793209 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 3A894AA02B9B89C700793209 /* ColorSpotter */;
+			target = 3A894AA02B9B89C700793209 /* HueScan */;
 			targetProxy = 3A894AB22B9B89C900793209 /* PBXContainerItemProxy */;
 		};
 		3A894ABD2B9B89C900793209 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 3A894AA02B9B89C700793209 /* ColorSpotter */;
+			target = 3A894AA02B9B89C700793209 /* HueScan */;
 			targetProxy = 3A894ABC2B9B89C900793209 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -698,7 +698,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		3A894AC52B9B89C900793209 /* Build configuration list for PBXNativeTarget "ColorSpotter" */ = {
+		3A894AC52B9B89C900793209 /* Build configuration list for PBXNativeTarget "HueScan" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3A894AC62B9B89C900793209 /* Debug */,

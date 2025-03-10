@@ -42,7 +42,7 @@ struct CameraScreenView: View {
                                 }
                             }
                             
-                            VStack(alignment: .trailing) {
+                            VStack(alignment: .leading) {
                                 Button(action: {
                                     viewModel.storeLastColor()
                                 }) {
@@ -116,8 +116,7 @@ struct CameraScreenView: View {
                     viewModel.requestCameraPermission()
                 }
                 // Use NavigationLink with a boolean binding to control navigation
-                .background(
-                                   NavigationLink("", destination: ColorListView(), isActive: $navigateToNewView)
+                .background(NavigationLink("", destination: ColorListView(), isActive: $navigateToNewView)
                                        .opacity(0)
                                )
             }
